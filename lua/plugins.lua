@@ -25,4 +25,5 @@ return {
   { "NeogitOrg/neogit", opts = {} },
   { "lewis6991/gitsigns.nvim", opts = {} },
   -- { "folke/trouble.nvim", opts = {} },
+  { "nvim-tree/nvim-tree.lua", opts = {} },
 }
