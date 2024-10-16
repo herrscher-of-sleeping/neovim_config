@@ -21,4 +21,8 @@ return {
   { "nvim-lua/plenary.nvim" },
   { "nvim-telescope/telescope.nvim", opts = {} },
   { "rafi/awesome-vim-colorschemes" },
+  { "shortcuts/no-neck-pain.nvim" },
+  { "NeogitOrg/neogit", opts = {} },
+  { "lewis6991/gitsigns.nvim", opts = {} },
+  -- { "folke/trouble.nvim", opts = {} },
 }
