@@ -45,4 +45,18 @@ cmp.setup({
   })
 })
 
-require('telescope').load_extension('bookmarks')
+require("telescope").load_extension("bookmarks")
+
+vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
+
+vim.g.diagnostics_visible = true
+function _G.toggle_diagnostics()
+  if vim.g.diagnostics_visible then
+    vim.diagnostic.enable(false)
+  else
+    vim.diagnostic.enable()
+  end
+  vim.g.diagnostics_visible = not vim.g.diagnostics_visible
+end
+vim.keymap.set("n", "<leader>dt", ':call v:lua.toggle_diagnostics()<CR>')
+
