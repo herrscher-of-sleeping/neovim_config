@@ -4,6 +4,7 @@ local lspconfig = require "lspconfig"
 
 lspconfig.lua_ls.setup{}
 lspconfig.ts_ls.setup{}
+lspconfig.jsonls.setup{}
 
 vim.wo.number = true
 
@@ -37,9 +38,6 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'vsnip' }, -- For vsnip users.
-    -- { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
   }, {
     { name = 'buffer' },
   })
