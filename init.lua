@@ -5,6 +5,7 @@ local lspconfig = require "lspconfig"
 lspconfig.lua_ls.setup{}
 lspconfig.ts_ls.setup{}
 lspconfig.jsonls.setup{}
+lspconfig.pylsp.setup{}
 
 vim.wo.number = true
 
@@ -47,6 +48,7 @@ require("telescope").load_extension("bookmarks")
 
 vim.keymap.set("n", "<leader>f", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>b", ":Telescope buffers<CR>")
+vim.keymap.set("n", "<f5>", ":make<CR>")
 
 vim.g.diagnostics_visible = true
 function _G.toggle_diagnostics()
