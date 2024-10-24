@@ -22,7 +22,14 @@ return {
   { "hrsh7th/nvim-cmp", opts = {} },
   { "hrsh7th/cmp-nvim-lsp", opts = {} },
   { -- filter lists, do seach, find files, etc
-    "nvim-telescope/telescope.nvim", opts = {}
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      pickers = {
+        colorscheme = {
+          enable_preview = true
+        }
+      }
+    }
   },
   { "rafi/awesome-vim-colorschemes" },
   { -- :NoNeckPain for no neck pain
