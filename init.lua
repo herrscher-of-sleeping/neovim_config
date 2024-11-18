@@ -1,6 +1,33 @@
 require("config.lazy")
-
 local lspconfig = require "lspconfig"
+local pickers = require "telescope.pickers"
+local finders = require "telescope.finders"
+local conf = require("telescope.config").values
+local actions = require "telescope.actions"
+local action_state = require "telescope.actions.state"
+
+local telescope_lsp_commands = function(opts)
+  opts = opts or {}
+  local commands = {}
+  for k, _ in pairs(vim.lsp.buf) do
+    table.insert(commands, k)
+  end
+  pickers.new(opts, {
+    prompt_title = "lsp",
+    finder = finders.new_table {
+      results = commands,
+    },
+    sorter = conf.generic_sorter(opts),
+    attach_mappings = function(prompt_bufnr, _)
+      actions.select_default:replace(function()
+        actions.close(prompt_bufnr)
+        local selection = action_state.get_selected_entry()
+        vim.lsp.buf[selection[1]]()
+      end)
+      return true
+    end,
+  }):find()
+end
 
 if vim.fn.executable("deno") == 1 then
   lspconfig.denols.setup {
@@ -84,6 +111,7 @@ vim.keymap.set("n", "<leader>b", ":Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>x", ":Telescope commands<CR>")
 vim.keymap.set("n", "<leader>/", ":Telescope live_grep<CR>")
 vim.keymap.set("n", "<f5>", ":make<CR>")
+vim.keymap.set("n", "<leader>l", telescope_lsp_commands)
 
 vim.g.diagnostics_visible = true
 function _G.toggle_diagnostics()
