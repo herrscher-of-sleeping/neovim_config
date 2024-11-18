@@ -82,6 +82,7 @@ require("telescope").load_extension("bookmarks")
 vim.keymap.set("n", "<leader>f", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>b", ":Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>x", ":Telescope commands<CR>")
+vim.keymap.set("n", "<leader>/", ":Telescope live_grep<CR>")
 vim.keymap.set("n", "<f5>", ":make<CR>")
 
 vim.g.diagnostics_visible = true
