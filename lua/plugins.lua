@@ -6,7 +6,7 @@ return {
     "williamboman/mason.nvim", opts = {}
   },
   { "williamboman/mason-lspconfig.nvim", opts = {} },
-  { "tomasky/bookmarks.nvim", opts = {} },
+  { "tomasky/bookmarks.nvim" },
   { -- Configures LSP for Vim config and plugins
     "folke/lazydev.nvim",
     ft = "lua",
